@@ -1,0 +1,63 @@
+Total All-Rounders:
+===================
+All-Rounder = COUNTROWS(FILTER(IPL_PLAYERS,IPL_PLAYERS[TYPE] = "All-Rounder"))
+
+Total Batters:
+=============
+Batter = COUNTROWS(FILTER(IPL_PLAYERS,IPL_PLAYERS[TYPE] = "Batter"))
+
+Total Blowers:
+=============
+Blowers = COUNTROWS(FILTER(IPL_PLAYERS,IPL_PLAYERS[TYPE] = "Bowler"))
+
+Number od indian Players:
+========================
+Indians = COUNTROWS(FILTER(IPL_PLAYERS,IPL_PLAYERS[NATIONALITY] = "Indian"))
+
+Number of Overseas:
+===================
+Overseas = COUNTROWS(FILTER(IPL_PLAYERS,IPL_PLAYERS[NATIONALITY] = "Overseas"))
+
+Team Count:
+==========
+TeamCount = 
+SUMX(
+    VALUES(IPL_PLAYERS[TEAM]),
+    CALCULATE(COUNTROWS(IPL_PLAYERS), IPL_PLAYERS[TEAM] = EARLIER(IPL_PLAYERS[TEAM]))
+)
+
+Unsold Indian Players:
+=====================
+Unsold Indian playesr = 
+COUNTROWS(
+    FILTER(
+        UNSOLD_PLAYERS,UNSOLD_PLAYERS[NATIONALITY] = "Indian"
+    )
+)
+
+Unsold Overseas player:
+======================
+Unsold Overseas playesr = 
+COUNTROWS(
+    FILTER(
+        UNSOLD_PLAYERS,UNSOLD_PLAYERS[NATIONALITY] = "Overseas"
+    )
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
